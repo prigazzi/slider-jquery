@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Tutorial</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/slider.jquery.js"></script>
+    <!-- Descomentar esta línea para activar la animación individual
+         de elementos como ejemplo de como extender el objet Slider
+
+    <script type="text/javascript" src="js/sorpresa.jquery.js"></script>
+    -->
+</head>
+<body>
+    <h1>&nbsp;</h1>
+    <section>
+        <a href="#" id="anterior">&laquo;</a>
+        <div id="marco">
+            <ul>
+                <li><img src="img/1.jpg" alt="Freddy y Cristian"></li>
+                <li><img src="img/2.jpg" alt="Stephanie"></li>
+                <li><img src="img/3.jpg" alt="Nyan Cat"></li>
+                <li><img src="img/4.jpg" alt="HTML5"></li>
+                <li><img src="img/5.jpg" alt="PHP <3 #mejorandola"></li>
+            </ul>
+        </div>
+        <a href="#" id="siguiente">&raquo;</a>
+    </section>
+    <script type="text/javascript">
+        $('#marco').marquesina({
+            onSlideChange : function() {
+                $slide = $(this);
+                var alt = $slide.find('img').attr('alt');
+                $('h1').text(alt);
+            }
+        });
+    </script>
+</body>
+</html>
