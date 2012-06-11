@@ -16,7 +16,7 @@
         },
         init : function(opciones) {
             this.config = $.extend({}, this.defaults, opciones);
-
+            
             this.$contenedor = this.$elem.children().eq(0);
             this.$slides = this.$contenedor.children();
             this.totalSlides = this.$slides.length;
@@ -27,18 +27,18 @@
                 movimiento : false,
             };
 
-            that = this;
-            $(this.config.anterior).click(function(){
+            var that = this;
+            $(this.config.anterior).click(function() {
                 that.anterior();
             });
-            $(this.config.siguiente).click(function(){
+            $(this.config.siguiente).click(function() {
                 that.siguiente();
             })
 
             this.$contenedor.width((this.visibles + this.totalSlides) * this.avance);
 
             for(var i = 0; i < this.visibles; i++) {
-                temp = this.$slides.eq(i).clone();
+                var temp = this.$slides.eq(i).clone();
                 this.$contenedor.append(temp);
             }
 
@@ -64,13 +64,14 @@
             return slide;
         },
         animar : function(elemento, slide) {
-            sentido = (this.slide.actual - slide) == -1 ?
-                        "-" :
-                        "+";
+            var sentido = (this.slide.actual - slide) == -1 ?
+                            "-" :
+                            "+";
             /*uglyfix : sepan entender */
             sentido = this.slide.actual == slide? '' : sentido;
+
             this.slide.movimiento = true;
-            that = this;
+            var that = this;
             elemento.animate({
                 left: sentido+"="+this.avance+'px',
             }, 'swing', function(){

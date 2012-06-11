@@ -2,7 +2,7 @@
 
     $.fn.marquesina = function(prev, sig) {
         return this.each(function(){
-            $container = $(this).children().eq(0);
+            var $container = $(this).children().eq(0);
 
             if($container) {
                 var $fotos = $container.children();
