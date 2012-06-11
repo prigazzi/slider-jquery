@@ -2,6 +2,10 @@
     var Slider = function(elem, opciones) {
         this.elem  = elem;
         this.$elem = $(elem);
+        this.$btnAnterior = $('<a href="#" id="anterior">&laquo;</a>');
+        this.$btnSiguiente = $('<a href="#" id="siguiente">&raquo;</a>');
+        this.$elem.before(this.$btnAnterior);
+        this.$elem.after(this.$btnSiguiente);
 
         if(this.init) {
             this.init(opciones);
@@ -9,8 +13,6 @@
     }
     Slider.prototype = {
         defaults : {
-            anterior : '#anterior',
-            siguiente: '#siguiente',
             slideInicial : 1,
             onSlideChange : function(){},
         },
@@ -28,10 +30,10 @@
             };
 
             var that = this;
-            $(this.config.anterior).click(function() {
+            $(this.$btnAnterior).click(function() {
                 that.anterior();
             });
-            $(this.config.siguiente).click(function() {
+            $(this.$btnSiguiente).click(function() {
                 that.siguiente();
             })
 
