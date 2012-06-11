@@ -45,7 +45,7 @@
             this.verSlide(this.config.slideInicial);
         },
         verSlide : function(slide) {
-            elemento = this.$contenedor;
+            var elemento = this.$contenedor;
             slide = this.setearSlider(elemento, slide);
             this.animar(elemento, slide);
         },
@@ -97,8 +97,8 @@
 
     $.fn.marquesina = function(opciones) {
         if(typeof opciones == "string") {
-            metodo = opciones;
-            args = Array.prototype.slice.call(arguments, 1);
+            var metodo = opciones;
+            var args = Array.prototype.slice.call(arguments, 1);
 
             var slider = this.data('slider') ?
                 this.data('slider') : 
