@@ -5,16 +5,10 @@ body {
 a#siguiente {
     left: -35px;
 }
-    a#siguiente:hover {
-        left: -25px;
-    }
 
-a#anterior {
-    right: -35px;
+a#siguiente:hover {
+    left: -25px;
 }
-    a#anterior:hover {
-        right: -25px;
-    }
 
 section {
     margin: 70px auto;
